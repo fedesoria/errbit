@@ -23,8 +23,8 @@ namespace :errbit do
   
   desc "Copy's over example files and seeds the database"
   task :bootstrap do
-    Rake::Task['errbit:copy_configs'].execute
-    puts "\n"
+    # Rake::Task['errbit:copy_configs'].execute
+    # puts "\n"
     Rake::Task['db:seed'].invoke
   end
   
