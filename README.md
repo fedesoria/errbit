@@ -26,6 +26,7 @@ Installation on Heroku
             cd foo
             heroku addons:add mongohq:free
             git push heroku master
+            heroku rake db:seed
 
 
 Special Thanks
