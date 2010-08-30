@@ -17,61 +17,16 @@ If this doesn't sound like you, you should probably stick with [Hoptoad](http://
 The [Thoughtbot](http://thoughtbot.com) guys offer great support for it and it is much more worry-free.
 They have a free package and even offer a *"Hoptoad behind your firewall"* solution.
 
-Installation
+Installation on Heroku
 ------------
 
-*Note*: This app is intended for people with experience deploying and maintining
-Rails applications. If you're uncomfortable with any step below then Errbit is not
-for you. Checkout [Hoptoad](http://hoptoadapp.com) from the guys over at 
-[Thoughtbot](http://thoughtbot.com), which Errbit is based on.
-
-**Set your local box or server(Ubuntu):**
-
-  1. Install MongoDB
-    * Follow the directions [here](http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages), then:
-      
-            aptitude update
-            aptitude install mongodb
-      
-  2. Install libxml
-    
-        apt-get install libxml2 libxml2-dev libxslt-dev
-        
-  3. Install Bundler
+  Edit seed.rb for the admin credentials.
   
-         gem install bundler --pre
-         
-**Running Locally:**
+            heroku create foo
+            cd foo
+            heroku addons:add mongohq:free
+            git push heroku master
 
-  1. Bootstrap Errbit. This will copy over config.yml and also seed the database.
-
-        rake errbit:bootstrap
-
-  2. Update the config.yml and mongoid.yml files with information about your environment
-  3. Install dependencies
-  
-        bundle install
-      
-  4. Start Server
-  
-        script/rails server
-
-**Deploying:**
-
-  1. Bootstrap Errbit. This will copy over config.yml and also seed the database.
-
-        rake errbit:bootstrap
-
-  2. Update the deploy.rb file with information about your server
-  3. Setup server and deploy
-        
-        cap deploy:setup deploy
-
-TODO
-----
-
-* Add a deployment view
-* Add ability for watchers to be configured for types of notifications they should receive
 
 Special Thanks
 --------------
